@@ -147,6 +147,17 @@ Generates a plain-language UAT demo script from a set of acceptance criteria, wa
 
 ---
 
+**Oversight Review** (`oversight-review.md`) `◇ Framework-only`
+
+Before an intent is set to Implemented, and only when AI Risk is Limited or High, after a UAT status exists. A named reviewer who did not author the change reads the test plan and either agrees or lists the row ids they reject. Rejection sets those rows back to `gap`. Minimal AI Risk records "not required" and stops. The skill does not set the intent status. If the intent names a regulation, the reviewer states which rows are the evidence. It does not give legal advice and it does not embed control text. It may cite a verification record; the release-readiness checklist must not start inspecting the repo.
+
+- **When to invoke:** before setting an intent's status to Implemented, when AI Risk is Limited or High and a UAT status already exists. Invoking it on Minimal records "not required" and stops.
+- **How to invoke:** `"Read [skill-path]/oversight-review.md and record the oversight review for [intent]."`
+- **What you get:** an Oversight Review section on the intent. Minimal says not required. Limited or High records the reviewer's name, the date, and agree or disagree. Disagreement sets the named test-plan rows to `gap`. The intent status is unchanged.
+- **Framework dependency:** reads the intent's AI Risk field, the UAT Sign-off status, and the Test Plan tables on the intent's units. Without the intent it cannot run. It does not install a test runner and it does not apply a compliance control matrix.
+
+---
+
 **Release Readiness Checklist** (`release-readiness-checklist.md`) `◆ Standalone`
 
 Walks the engineer through the UAT Release Checklist or the Production Release Checklist, one item at a time, before a release ships. Records **Confirmed / Not confirmed / N/A** for every item, captures a blocker note for anything not confirmed, and closes with a full readiness report. **Not an evidence audit** — unlike Product Engineering Essentials, it never inspects the repository, CI logs, or any other artifact; it is a pure self-attestation record. It never gates or authorizes the release either — that decision stays with whoever holds sign-off (technical owner, QA, security, product, operations, as applicable).

@@ -33,6 +33,7 @@ project-root/
       test-evidence.md         ← template (pre-built)
       exploratory-session.md   ← template (pre-built)
       uat.md                   ← template (pre-built)
+      oversight-review.md      ← template (pre-built)
       release-readiness-checklist.md ← template (pre-built)
       process-health.md        ← template (pre-built)
       dependency-audit.md      ← template (pre-built)
@@ -132,6 +133,7 @@ Before migrating, understand which files are which:
 - `ai-dlc/skills/test-evidence.md`
 - `ai-dlc/skills/exploratory-session.md`
 - `ai-dlc/skills/uat.md`
+- `ai-dlc/skills/oversight-review.md`
 - `ai-dlc/skills/release-readiness-checklist.md`
 - `ai-dlc/skills/process-health.md`
 - `ai-dlc/skills/dependency-audit.md`
@@ -318,6 +320,7 @@ Files to refresh:
 | `process-onboarding-agent/skills/test-evidence.md` | `{NEW_FRAMEWORK_ROOT}/skills/test-evidence.md` |
 | `process-onboarding-agent/skills/exploratory-session.md` | `{NEW_FRAMEWORK_ROOT}/skills/exploratory-session.md` |
 | `process-onboarding-agent/skills/uat.md` | `{NEW_FRAMEWORK_ROOT}/skills/uat.md` |
+| `process-onboarding-agent/skills/oversight-review.md` | `{NEW_FRAMEWORK_ROOT}/skills/oversight-review.md` |
 | `process-onboarding-agent/skills/release-readiness-checklist.md` | `{NEW_FRAMEWORK_ROOT}/skills/release-readiness-checklist.md` |
 | `process-onboarding-agent/skills/process-health.md` | `{NEW_FRAMEWORK_ROOT}/skills/process-health.md` |
 | `process-onboarding-agent/skills/dependency-audit.md` | `{NEW_FRAMEWORK_ROOT}/skills/dependency-audit.md` |
