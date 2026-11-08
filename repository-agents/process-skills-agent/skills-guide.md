@@ -115,6 +115,17 @@ Binds each acceptance criterion to one test level — unit, integration, system,
 
 ---
 
+**Test Evidence** (`test-evidence.md`) `◆ Standalone`
+
+Runs the command already stored on each unit, integration, and system row of a Test Plan, once. Records the exit code and a result path and sets `passed` or `gap`. A row with no command stays `gap` with the note `no command`. A system row whose environment is not up stays `gap`. A waiver requires a named person and a reason. Acceptance and exploratory rows are left unchanged. A `gap` or empty status blocks Done. A `waived` row does not.
+
+- **When to invoke:** before marking a unit Done
+- **How to invoke:** `"Read [skill-path]/test-evidence.md and record test evidence for [unit]."`
+- **What you get:** the same Test Plan table, with unit, integration, and system rows set to `passed`, `gap`, or `waived`, plus a result file for every command that was run. The unit is not marked Done on a gap.
+- **Adapts to your process:** name the unit file that already has a Test Plan table. No framework install is required. The skill runs the command the plan already stored and does not install a runner.
+
+---
+
 **UAT Sign-off** (`uat.md`) `◆ Standalone`
 
 Generates a plain-language UAT demo script from a set of acceptance criteria, walks the engineer through each step, and records pass/fail/deferred outcomes. Blocks closure of a feature until a sign-off status is recorded.
