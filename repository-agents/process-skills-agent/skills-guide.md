@@ -126,6 +126,17 @@ Runs the command already stored on each unit, integration, and system row of a T
 
 ---
 
+**Exploratory Session** (`exploratory-session.md`) `◆ Standalone`
+
+Scribe for a human exploratory session. The engineer supplies a charter (what to learn), a timebox, the areas in scope, and a unit or intent. The agent records what they tried and what they saw. It does not explore the product and does not turn acceptance criteria into a script. Each defect is classified as bug-bolt, new AC, or dropped-with-reason. A bug-bolt classification stores intake on the note and does not open `bug-bolt.md`. A new AC is the engineer's wording on the note, not a new Test Plan row.
+
+- **When to invoke:** when the engineer asks for an exploratory or QA session. Never automatic, and never because a unit reached Done.
+- **How to invoke:** `"Read [skill-path]/exploratory-session.md and record an exploratory session for [unit or intent]."`
+- **What you get:** a dated note under `ops/operate/`, one classification per defect, and a link to that note from the exploratory row of the Test Plan.
+- **Adapts to your process:** name the unit or intent. Without a framework install, the note still goes under `ops/operate/` in the working directory. No test command is run.
+
+---
+
 **UAT Sign-off** (`uat.md`) `◆ Standalone`
 
 Generates a plain-language UAT demo script from a set of acceptance criteria, walks the engineer through each step, and records pass/fail/deferred outcomes. Blocks closure of a feature until a sign-off status is recorded.

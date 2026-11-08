@@ -466,6 +466,7 @@ Create this directory tree at the root of your repository:
     progress-digest.md       ← plain-language stakeholder progress summary for a feature intent
     test-plan.md             ← binds each acceptance criterion to one test level before code is generated
     test-evidence.md         ← runs stored unit, integration, and system commands once and records exit code and result path; a gap or empty status blocks Done
+    exploratory-session.md   ← on-demand scribe for a human exploratory session; links a dated note under ops/operate/
     uat.md                   ← acceptance testing protocol; blocks an intent from closing without sign-off
     process-health.md        ← quantitative report on how well the AI-DLC process is functioning
     dependency-audit.md      ← scheduled audit of third-party dependencies by severity
@@ -629,6 +630,7 @@ If the engineer defers, ask for the new date and update Section 9 before continu
 **Bolt risk assessment:** read `{FRAMEWORK_ROOT}/skills/bolt-risk-assessment.md` after elaboration sign-off and before the first unit in a bolt executes. No unit may begin execution without a signed-off risk assessment in the bolt file.
 **Test plan skill:** read `{FRAMEWORK_ROOT}/skills/test-plan.md` after elaboration sign-off and bolt risk assessment, before the first code response for a unit. Do not generate code for a unit until every AC has a level.
 **Test evidence skill:** read `{FRAMEWORK_ROOT}/skills/test-evidence.md` before marking a unit Done. Read it for unit, integration, and system rows. A `gap` or empty status blocks Done. A `waived` row does not.
+**Exploratory session skill:** read `{FRAMEWORK_ROOT}/skills/exploratory-session.md` when the engineer asks for an exploratory / QA session. Defects become bug-bolt intake or a new AC. Never automatic.
 **UAT skill:** read `{FRAMEWORK_ROOT}/skills/uat.md` when all units under an intent are marked Done, or when the engineer invokes it directly. Prompt the engineer to run UAT before setting intent status to Implemented.
 **Progress digest skill:** read `{FRAMEWORK_ROOT}/skills/progress-digest.md` when the engineer asks for a stakeholder update, progress summary, or digest for an intent.
 **Process health skill:** read `{FRAMEWORK_ROOT}/skills/process-health.md` when the engineer invokes it to audit how well the AI-DLC process is functioning.
@@ -947,6 +949,18 @@ Copy this file verbatim from `process-onboarding-agent/skills/test-evidence.md` 
 
 ```markdown
 **Test evidence skill:** read `{FRAMEWORK_ROOT}/skills/test-evidence.md` before marking a unit Done. Read it for unit, integration, and system rows. A `gap` or empty status blocks Done. A `waived` row does not.
+```
+
+### `skills/exploratory-session.md`
+
+The exploratory-session skill is the scribe for a human exploratory or QA session. The engineer supplies a charter, a timebox, the areas in scope, and a unit or intent. The skill records what they tried and what they saw, classifies each defect as bug-bolt, new AC, or dropped-with-reason, and writes a dated note under `ops/operate/`. It links that note from the exploratory row of the Test Plan. It does not script acceptance criteria, run a test command, or start by itself.
+
+Copy this file verbatim from `process-onboarding-agent/skills/exploratory-session.md` to `{FRAMEWORK_ROOT}/skills/exploratory-session.md`. No customization is needed.
+
+**Wire into the master rule file Section 6** by adding one routing line:
+
+```markdown
+**Exploratory session skill:** read `{FRAMEWORK_ROOT}/skills/exploratory-session.md` when the engineer asks for an exploratory / QA session. Defects become bug-bolt intake or a new AC. Never automatic.
 ```
 
 ### `skills/uat.md`
