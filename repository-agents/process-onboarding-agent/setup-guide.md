@@ -465,6 +465,7 @@ Create this directory tree at the root of your repository:
     bolt-risk-assessment.md  ← blast radius, rollback, and feature flag assessment before a bolt's first unit executes
     progress-digest.md       ← plain-language stakeholder progress summary for a feature intent
     test-plan.md             ← binds each acceptance criterion to one test level before code is generated
+    test-evidence.md         ← runs stored unit, integration, and system commands once and records exit code and result path; a gap or empty status blocks Done
     uat.md                   ← acceptance testing protocol; blocks an intent from closing without sign-off
     process-health.md        ← quantitative report on how well the AI-DLC process is functioning
     dependency-audit.md      ← scheduled audit of third-party dependencies by severity
@@ -627,6 +628,7 @@ If the engineer defers, ask for the new date and update Section 9 before continu
 **Codebase findings:** before analyzing existing code to understand a new intent's dependencies on prior implementation, check `{FRAMEWORK_ROOT}/ops/inception/codebase-findings/README.md` for an existing file on that module/area; after any such analysis, record or update the finding there. This is part of the mandatory elaboration protocol above, not a separate skill.
 **Bolt risk assessment:** read `{FRAMEWORK_ROOT}/skills/bolt-risk-assessment.md` after elaboration sign-off and before the first unit in a bolt executes. No unit may begin execution without a signed-off risk assessment in the bolt file.
 **Test plan skill:** read `{FRAMEWORK_ROOT}/skills/test-plan.md` after elaboration sign-off and bolt risk assessment, before the first code response for a unit. Do not generate code for a unit until every AC has a level.
+**Test evidence skill:** read `{FRAMEWORK_ROOT}/skills/test-evidence.md` before marking a unit Done. Read it for unit, integration, and system rows. A `gap` or empty status blocks Done. A `waived` row does not.
 **UAT skill:** read `{FRAMEWORK_ROOT}/skills/uat.md` when all units under an intent are marked Done, or when the engineer invokes it directly. Prompt the engineer to run UAT before setting intent status to Implemented.
 **Progress digest skill:** read `{FRAMEWORK_ROOT}/skills/progress-digest.md` when the engineer asks for a stakeholder update, progress summary, or digest for an intent.
 **Process health skill:** read `{FRAMEWORK_ROOT}/skills/process-health.md` when the engineer invokes it to audit how well the AI-DLC process is functioning.
@@ -933,6 +935,18 @@ Copy this file verbatim from `process-onboarding-agent/skills/test-plan.md` to `
 
 ```markdown
 **Test plan skill:** read `{FRAMEWORK_ROOT}/skills/test-plan.md` after elaboration sign-off and bolt risk assessment, before the first code response for a unit. Do not generate code for a unit until every AC has a level.
+```
+
+### `skills/test-evidence.md`
+
+The test-evidence skill runs before a unit is marked Done. For each unit, integration, and system row it runs the command stored on that row once, records the exit code and a result path, and sets `passed` or `gap`. A row with no command stays `gap` with the note `no command`. A system row whose environment is not up stays `gap`. A waiver requires a named person and a reason. A `gap` or empty status blocks Done. A `waived` row does not. Acceptance rows stay with `uat.md`. The skill does not start UAT and does not install a runner.
+
+Copy this file verbatim from `process-onboarding-agent/skills/test-evidence.md` to `{FRAMEWORK_ROOT}/skills/test-evidence.md`. No customization is needed.
+
+**Wire into the master rule file Section 6** by adding one routing line:
+
+```markdown
+**Test evidence skill:** read `{FRAMEWORK_ROOT}/skills/test-evidence.md` before marking a unit Done. Read it for unit, integration, and system rows. A `gap` or empty status blocks Done. A `waived` row does not.
 ```
 
 ### `skills/uat.md`
