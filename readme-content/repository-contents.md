@@ -23,6 +23,7 @@ This repo is the **base template** — the source of truth that gets copied into
 | `repository-agents/process-onboarding-agent/skills/test-evidence.md` | Runs the stored command once for each unit, integration, and system row. Records the exit code and a result path and sets passed or gap. No command stays gap with the note "no command". A waiver needs a named person and a reason. A gap or empty status blocks Done; a waived row does not. Does not start UAT and does not invent a runner. |
 | `repository-agents/process-onboarding-agent/skills/exploratory-session.md` | On-demand scribe for a human exploratory or QA session. Records the charter, timebox, areas, and what the engineer tried. Classifies each defect as bug-bolt, new AC, or dropped-with-reason. Writes a dated note under `ops/operate/` and links it from the exploratory row. Does not script acceptance criteria and never starts automatically. |
 | `repository-agents/process-onboarding-agent/skills/uat.md` | Acceptance testing protocol. Guides the engineer through UAT using the intent's ACs as the test script; records pass/fail/deferred outcomes; blocks intent from being marked Implemented without sign-off. |
+| `repository-agents/process-onboarding-agent/skills/oversight-review.md` | Framework-only review before Implemented, after a UAT status exists. Minimal AI Risk records "not required" and stops. Limited or High: a named reviewer who is not the author reads the test plan and agrees, or lists row ids they reject. Rejection sets those rows back to gap. Does not set intent status. If the intent names a regulation, the reviewer states which rows are the evidence. Does not give legal advice or embed control text. |
 | `repository-agents/process-onboarding-agent/skills/release-readiness-checklist.md` | Self-attestation UAT/production release checklist. Walks the engineer through the checklist one item at a time (Confirmed / Not confirmed / N/A), records a blocker note for anything not confirmed, and produces a readiness report. Never inspects the repo for evidence and never gates the release — that decision stays with whoever holds sign-off. Engineer-invoked only. |
 | `repository-agents/process-onboarding-agent/skills/process-health.md` | Process health metrics. Computes four metrics (improvement adoption, quality gate failure rate, AC revision rate, bolt velocity) and surfaces decay signals; saves a dated health report automatically. |
 | `repository-agents/process-onboarding-agent/skills/dependency-audit.md` | Monthly dependency and security posture audit. Reads manifests, classifies findings by severity, and creates remediation bolts for high/critical issues. Scheduled via Section 9 of the master rule file. |
@@ -82,6 +83,7 @@ The onboarding agent first asks where your process documentation lives, then ins
         test-evidence.md
         exploratory-session.md
         uat.md
+        oversight-review.md
         release-readiness-checklist.md
         process-health.md
         dependency-audit.md

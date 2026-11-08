@@ -97,6 +97,7 @@ Use `FRAMEWORK_ROOT` as the base path for every framework file created during th
    - `process-onboarding-agent/skills/test-evidence.md`
    - `process-onboarding-agent/skills/exploratory-session.md`
    - `process-onboarding-agent/skills/uat.md`
+   - `process-onboarding-agent/skills/oversight-review.md`
    - `process-onboarding-agent/skills/process-health.md`
    - `process-onboarding-agent/skills/dependency-audit.md`
    - `process-onboarding-agent/skills/knowledge-promotion.md`

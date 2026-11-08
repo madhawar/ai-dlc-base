@@ -468,6 +468,7 @@ Create this directory tree at the root of your repository:
     test-evidence.md         ← runs stored unit, integration, and system commands once and records exit code and result path; a gap or empty status blocks Done
     exploratory-session.md   ← on-demand scribe for a human exploratory session; links a dated note under ops/operate/
     uat.md                   ← acceptance testing protocol; blocks an intent from closing without sign-off
+    oversight-review.md      ← before Implemented when AI Risk is Limited or High, after a UAT status exists; Minimal records not required
     process-health.md        ← quantitative report on how well the AI-DLC process is functioning
     dependency-audit.md      ← scheduled audit of third-party dependencies by severity
     knowledge-promotion.md   ← classifies retro improvements as generic (promote to base repo) or project-specific
@@ -632,6 +633,7 @@ If the engineer defers, ask for the new date and update Section 9 before continu
 **Test evidence skill:** read `{FRAMEWORK_ROOT}/skills/test-evidence.md` before marking a unit Done. Read it for unit, integration, and system rows. A `gap` or empty status blocks Done. A `waived` row does not.
 **Exploratory session skill:** read `{FRAMEWORK_ROOT}/skills/exploratory-session.md` when the engineer asks for an exploratory / QA session. Defects become bug-bolt intake or a new AC. Never automatic.
 **UAT skill:** read `{FRAMEWORK_ROOT}/skills/uat.md` when all units under an intent are marked Done, or when the engineer invokes it directly. Prompt the engineer to run UAT before setting intent status to Implemented.
+**Oversight review skill:** read `{FRAMEWORK_ROOT}/skills/oversight-review.md` before setting intent status to Implemented, and only if AI Risk is Limited or High, after a UAT status exists. Minimal risk skips it.
 **Progress digest skill:** read `{FRAMEWORK_ROOT}/skills/progress-digest.md` when the engineer asks for a stakeholder update, progress summary, or digest for an intent.
 **Process health skill:** read `{FRAMEWORK_ROOT}/skills/process-health.md` when the engineer invokes it to audit how well the AI-DLC process is functioning.
 **New engineer induction skill:** read `{FRAMEWORK_ROOT}/skills/new-engineer-induction.md` when an engineer says they are new to the project or invokes it directly.
@@ -977,6 +979,18 @@ Copy this file verbatim from `process-onboarding-agent/skills/uat.md` to `{FRAME
 
 ```markdown
 **UAT skill:** read `{FRAMEWORK_ROOT}/skills/uat.md` when all units under an intent are marked Done, or when the engineer invokes it directly. Prompt the engineer to run UAT before setting intent status to Implemented.
+```
+
+### `skills/oversight-review.md`
+
+The oversight-review skill runs before an intent's status is set to Implemented, and only when AI Risk is Limited or High, after a UAT status exists. A named reviewer who did not author the change reads the test plan and either agrees or lists the row ids they reject. Rejection sets those rows back to `gap`. Minimal AI Risk records "not required" and stops. The skill does not set the intent status. If the intent names a regulation, the reviewer states which rows are the evidence. It does not give legal advice and it does not embed control text.
+
+Copy this file verbatim from `process-onboarding-agent/skills/oversight-review.md` to `{FRAMEWORK_ROOT}/skills/oversight-review.md`. No customization is needed.
+
+**Wire into the master rule file Section 6** by adding one routing line:
+
+```markdown
+**Oversight review skill:** read `{FRAMEWORK_ROOT}/skills/oversight-review.md` before setting intent status to Implemented, and only if AI Risk is Limited or High, after a UAT status exists. Minimal risk skips it.
 ```
 
 ### `skills/progress-digest.md`
